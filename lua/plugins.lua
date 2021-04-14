@@ -33,35 +33,35 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     -- TODO refactor all of this (for now it works, but yes I know it could be wrapped in a simpler function)
-    use 'neovim/nvim-lspconfig'
-    use {'glepnir/lspsaga.nvim', opt = true}
-    use {'onsails/lspkind-nvim', opt = true}
-    use {'kabouzeid/nvim-lspinstall', opt = true}
+    use {'neovim/nvim-lspconfig', opt=true}
+    use {'glepnir/lspsaga.nvim', opt=true}
+    use {'onsails/lspkind-nvim', opt=true}
+    use {'kabouzeid/nvim-lspinstall', opt=true}
 
-    -- Telescope
-    use {'nvim-lua/popup.nvim', opt = true}
-    use {'nvim-lua/plenary.nvim', opt = true}
-    use {'nvim-telescope/telescope.nvim', opt = true}
+    -- Tlescope
+    use {'nvim-lua/popup.nvim', opt=true}
+    use {'nvim-lua/plenary.nvim', opt=true}
+    use {'nvim-telescope/telescope.nvim', opt=true}
 
-    -- Debugging
-    use {'mfussenegger/nvim-dap', opt = true}
+    -- Dbugging
+    use {'mfussenegger/nvim-dap', opt=true}
 
-    -- Autocomplete
-    use {'hrsh7th/nvim-compe', opt = true}
-    use {'mattn/emmet-vim', opt = true}
-    use {'hrsh7th/vim-vsnip', opt = true}
-    use {"rafamadriz/friendly-snippets", opt = true}
+    -- Atocomplete
+    use {'hrsh7th/nvim-compe', opt=true}
+    use {'mattn/emmet-vim', opt=true}
+    use {'hrsh7th/vim-vsnip', opt=true}
+    use {"rafamadriz/friendly-snippets", opt=true}
 
-    -- Treesitter
-    use {'nvim-treesitter/nvim-treesitter', opt = true, run = ':TSUpdate'}
-    use {'windwp/nvim-ts-autotag', opt = true}
+    -- Teesitter
+    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+    use {'windwp/nvim-ts-autotag', opt=true}
 
-    -- Explorer
-    use {'kyazdani42/nvim-tree.lua', opt = true}
+    -- Eplorer
+    use 'kyazdani42/nvim-tree.lua'
     -- TODO remove when open on dir is supported by nvimtree
     use 'kevinhwang91/rnvimr'
 
-    -- use {'lukas-reineke/indent-blankline.nvim', opt=true, branch = 'lua'}
+-- use {'lukas-reineke/indent-blankline.nvim', opt=true, branch = 'lua'}
     use {'lewis6991/gitsigns.nvim', opt = true}
     use {'liuchengxu/vim-which-key', opt = true}
     use {'ChristianChiarulli/dashboard-nvim', opt = true}
