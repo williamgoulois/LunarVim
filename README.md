@@ -1,4 +1,12 @@
-![NVCode Logo](./utils/media/nvcode_logo.png)
+<!-- ![NVCode Logo](./utils/media/nvcode_logo.png) -->
+```
+          _..._                             
+        .'   (_`.    _                         __     ___           
+       :  .      :  | |   _   _ _ __   __ _ _ _\ \   / (_)_ __ ___  
+       :)    ()  :  | |  | | | | '_ \ / _` | '__\ \ / /| | '_ ` _ \ 
+       `.   .   .'  | |__| |_| | | | | (_| | |   \ V / | | | | | | |
+         `-...-'    |_____\__,_|_| |_|\__,_|_|    \_/  |_|_| |_| |_|
+```
 
 
 <a href="https://discord.gg/Xb9B4Ny"><img src="https://img.shields.io/discord/308323056592486420?logo=discord" alt="chat on Discord"></a>
