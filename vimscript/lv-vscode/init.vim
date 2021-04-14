@@ -1,14 +1,14 @@
 " TODO there is a more contemporary version of this file
 " TODO Also some of it is redundant
-packadd quickscope
+" packadd quickscope
 
 luafile ~/.config/nvim/lua/settings.lua
 
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+" let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
-highlight QuickScopePrimary guifg='#00C7DF' gui=underline ctermfg=155 cterm=underline
-highlight QuickScopeSecondary guifg='#eF5F70' gui=underline ctermfg=81 cterm=underline
-let g:qs_max_chars=150
+" highlight QuickScopePrimary guifg='#00C7DF' gui=underline ctermfg=155 cterm=underline
+" highlight QuickScopeSecondary guifg='#eF5F70' gui=underline ctermfg=81 cterm=underline
+" let g:qs_max_chars=150
 
 "VSCode
 function! s:split(...) abort

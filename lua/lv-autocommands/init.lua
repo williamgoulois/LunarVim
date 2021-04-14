@@ -1,4 +1,4 @@
-local utils = require('nv-utils')
+local utils = require('lv-utils')
 
 local auto_formatters = {            }
 
