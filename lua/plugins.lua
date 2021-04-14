@@ -33,7 +33,7 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     -- TODO refactor all of this (for now it works, but yes I know it could be wrapped in a simpler function)
-    use {'neovim/nvim-lspconfig', opt = true}
+    use 'neovim/nvim-lspconfig'
     use {'glepnir/lspsaga.nvim', opt = true}
     use {'onsails/lspkind-nvim', opt = true}
     use {'kabouzeid/nvim-lspinstall', opt = true}
@@ -58,7 +58,8 @@ return require('packer').startup(function(use)
 
     -- Explorer
     use {'kyazdani42/nvim-tree.lua', opt = true}
-    use {'kevinhwang91/rnvimr', opt = true}
+    -- TODO remove when open on dir is supported by nvimtree
+    use 'kevinhwang91/rnvimr'
 
     -- use {'lukas-reineke/indent-blankline.nvim', opt=true, branch = 'lua'}
     use {'lewis6991/gitsigns.nvim', opt = true}
@@ -105,6 +106,5 @@ return require('packer').startup(function(use)
     require_plugin('vim-devicons')
     require_plugin('galaxyline.nvim')
     require_plugin('barbar.nvim')
-    require_plugin('rnvimr')
 end)
 
