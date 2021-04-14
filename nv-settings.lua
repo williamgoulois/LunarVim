@@ -16,8 +16,6 @@ O.wrap_lines = false
 O.treesitter.ensure_installed = "all"
 O.treesitter.ignore_install = {"haskell"}
 O.treesitter.highlight.enabled = true
-O.treesitter.playground.enabled = true
-O.treesitter.rainbow.enabled = false
 
 
 O.clang.diagnostics.virtual_text = false
