@@ -15,7 +15,7 @@ installnodeubuntu() {
 }
 
 moveoldnvim() {
-	echo "Not installing NVCode"
+	echo "Not installing LunarVim"
 	echo "Please move your ~/.config/nvim folder before installing"
 	exit
 }
@@ -66,8 +66,8 @@ installpacker() {
 }
 
 cloneconfig() {
-	echo "Cloning NVCode configuration"
-	git clone https://github.com/ChristianChiarulli/nvcode.git ~/.config/nvim
+	echo "Cloning LunarVim configuration"
+	git clone https://github.com/ChristianChiarulli/lunarvim.git ~/.config/nvim
 	# mv $HOME/.config/nvim/init.lua $HOME/.config/nvim/init.lua.tmp
 	# mv $HOME/.config/nvim/utils/init.lua $HOME/.config/nvim/init.lua
 	nvim -u $HOME/.config/nvim/init.lua +PackerInstall
@@ -123,7 +123,7 @@ installextrapackages() {
 }
 
 # Welcome
-echo 'Installing NVCode'
+echo 'Installing LunarVim'
 
 # move old nvim directory if it exists
 [ -d "$HOME/.config/nvim" ] && moveoldnvim
