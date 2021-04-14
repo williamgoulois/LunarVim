@@ -16,9 +16,11 @@
 
 ![LunarVim Demo](./utils/media/demo.png)
 
-This project aims to help one transition away from VSCode, and into a superior text editing experience. (Just making this clear)
+1. This project aims to help one transition away from VSCode, and into a superior text editing experience. (Just making this clear)
 
-This is also a community project, if you would like to see support for a feature or language consider making a PR.
+2. This is also a community project, if you would like to see support for a feature or language consider making a PR.
+
+3. This project will do it's best to include core features you would expect from a modern IDE, while making it easy to add or remove what the user wants.
 
 ## Install In One Command!
 
