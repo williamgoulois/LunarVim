@@ -29,16 +29,11 @@ let g:which_key_map['?'] = [ ':NvimTreeFindFile'                               ,
 let g:which_key_map['e'] = [ ':NvimTreeToggle'                                 , 'explorer' ]
 let g:which_key_map['f'] = [ ':Telescope find_files'                           , 'find files' ]
 let g:which_key_map['h'] = [ '<C-W>s'                                          , 'split below']
-let g:which_key_map['M'] = [ ':MarkdownPreviewToggle'                          , 'markdown preview']
 let g:which_key_map['H'] = [ ':let @/ = ""'                                    , 'no highlight' ]
 let g:which_key_map['r'] = [ ':RnvimrToggle'                                   , 'ranger' ]
-let g:which_key_map['*'] = [ ':DogeGenerate'                                   , 'documentation generator' ]
-let g:which_key_map['u'] = [ ':UndotreeToggle'                                 , 'undo tree' ]
 " TODO create entire treesitter section
-let g:which_key_map['T'] = [ ':TSHighlightCapturesUnderCursor'                 , 'treesitter highlight' ]
 let g:which_key_map['v'] = [ '<C-W>v'                                          , 'split right']
 " TODO play nice with status line
-let g:which_key_map['z'] = [ 'Goyo'                                            , 'zen' ]
 
 " Group mappings
 
@@ -62,21 +57,6 @@ let g:which_key_map['.'] = {
       \ 'c' : ['<plug>(emmet-code-pretty)'               , 'code pretty'],
       \ }
 
-" a is for actions
-let g:which_key_map.a = {
-      \ 'name' : '+actions' ,
-      \ 'c' : [':ColorizerToggle'        , 'colorizer'],
-      \ 'h' : [':let @/ = ""'            , 'remove search highlight'],
-      \ 'i' : [':IndentBlanklineToggle'  , 'toggle indent lines'],
-      \ 'n' : [':set nonumber!'          , 'line-numbers'],
-      \ 's' : [':s/\%V\(.*\)\%V/"\1"/'   , 'surround'],
-      \ 'r' : [':set norelativenumber!'  , 'relative line nums'],
-      \ 'v' : [':Codi'                   , 'virtual repl on'],
-      \ 'V' : [':Codi!'                  , 'virtual repl off'],
-      \ }
-      " \ 'l' : [':Bracey'                 , 'start live server'],
-      " \ 'L' : [':BraceyStop'             , 'stop live server'],
-
 " b is for buffer
 let g:which_key_map.b = {
       \ 'name' : '+buffer' ,
@@ -99,17 +79,6 @@ let g:which_key_map.d = {
       \ 'r' : ['DebugToggleRepl'               , 'toggle repl'],
       \ 's' : ['DebugStart'                    , 'start'],
       \ }
-      " \ 'O' : ['DebugStepOut'                  , 'next-buffer'],
-      " \ 'S' : ['DebugGetSession '              , 'fzf-buffer'],
-
-" D is for database
-let g:which_key_map.D = {
-      \ 'name' : '+database' ,
-      \ 'u' : ['DBUIToggle '        , 'db ui toggle'],
-      \ 'f' : ['DBUIFindBuffer'     , 'db find buffer'],
-      \ 'r' : ['DBUIRenameBuffer'   , 'db rename buffer'],
-      \ 'l' : ['DBUILastQueryInfo'  , 'db last query'],
-      \ }
 
 " F is for fold
 let g:which_key_map.F = {
@@ -124,15 +93,6 @@ let g:which_key_map.F = {
     \ '4' : [':set foldlevel=4'   , 'level4'],
     \ '5' : [':set foldlevel=5'   , 'level5'],
     \ '6' : [':set foldlevel=6'   , 'level6']
-    \ }
-
-" m is for mark
-" I'd rather use regular marks but they never clear
-let g:which_key_map.m = {
-\ 'name': '+mark',
-    \ 't' : [':BookmarkToggle'   , 'toggle'],
-    \ 'j' : [':BookmarkNext'   , 'next mark'],
-    \ 'k' : [':BookmarkPrev'   , 'prev mark']
     \ }
 
 " s is for search powered by telescope
@@ -177,21 +137,6 @@ let g:which_key_map.g = {
       \ 'S' : [':Gstatus'                          , 'status'],
       \ 'u' : [':UndoStageHunk'                    , 'undo stage hunk'],
       \ }
-      " \ 'n' : [':Neogit'                           , 'neogit'],
-
-" G is for gist
-let g:which_key_map.G = {
-      \ 'name' : '+gist' ,
-      \ 'b' : [':Gist -b'                          , 'post gist browser'],
-      \ 'd' : [':Gist -d'                          , 'delete gist'],
-      \ 'e' : [':Gist -e'                          , 'edit gist'],
-      \ 'l' : [':Gist -l'                          , 'list public gists'],
-      \ 's' : [':Gist -ls'                         , 'list starred gists'],
-      \ 'm' : [':Gist -m'                          , 'post gist all buffers'],
-      \ 'p' : [':Gist -P'                          , 'post public gist '],
-      \ 'P' : [':Gist -p'                          , 'post private gist '],
-      \ }
-      " \ 'a' : [':Gist -a'                          , 'post gist anon'],
 
 " l is for language server protocol
 let g:which_key_map.l = {
@@ -213,30 +158,5 @@ let g:which_key_map.l = {
       \ 's' : [':Telescope lsp_document_symbols'     , 'document symbols'],
       \ 'S' : [':Telescope lsp_workspace_symbols'    , 'workspace symbols'],
       \ }
-      " \ 'H' : [':Lspsaga signature_help'             , 'signature_help'],
-      " \ 'o' : [':Vista!!'                            , 'outline'],
-
-" t is for terminal
-let g:which_key_map.t = {
-      \ 'name' : '+terminal' ,
-      \ ';' : [':FloatermNew --wintype=normal --height=6'       , 'terminal'],
-      \ 'f' : [':FloatermNew fzf'                               , 'fzf'],
-      \ 'g' : [':FloatermNew lazygit'                           , 'git'],
-      \ 'd' : [':FloatermNew lazydocker'                        , 'docker'],
-      \ 'n' : [':FloatermNew node'                              , 'node'],
-      \ 'N' : [':FloatermNew nnn'                               , 'nnn'],
-      \ 'p' : [':FloatermNew python'                            , 'python'],
-      \ 'm' : [':FloatermNew lazynpm'                           , 'npm'],
-      \ 't' : [':FloatermToggle'                                , 'toggle'],
-      \ 'y' : [':FloatermNew ytop'                              , 'ytop'],
-      \ 'u' : [':FloatermNew ncdu'                              , 'ncdu'],
-      \ }
-      " \ 'r' : [':FloatermNew ranger'                            , 'ranger'],
-
-" let g:which_key_map.R = {
-"       \ 'name' : '+Find_Replace' ,
-"       \ 'f' : [':Farr --source=vimgrep'    , 'file'],
-"       \ 'p' : [':Farr --source=rgnvim'     , 'project'],
-"       \ }
 
 call which_key#register('<Space>', "g:which_key_map")
