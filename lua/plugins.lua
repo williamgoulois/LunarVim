@@ -21,6 +21,7 @@ return require('packer').startup(function(use)
     -- Packer can manage itself as an optional plugin
     use 'wbthomason/packer.nvim'
 
+    -- TODO refactor all of this (for now it works, but yes I know it could be wrapped in a simpler function)
     use {'neovim/nvim-lspconfig', opt = true}
     use {'glepnir/lspsaga.nvim', opt = true}
     use {'onsails/lspkind-nvim', opt = true}
@@ -47,6 +48,7 @@ return require('packer').startup(function(use)
 
     -- Explorer
     use {'kyazdani42/nvim-tree.lua', opt = true}
+    use {'kevinhwang91/rnvimr', opt = true}
 
     -- use {'lukas-reineke/indent-blankline.nvim', opt=true, branch = 'lua'}
     use {'lewis6991/gitsigns.nvim', opt = true}
@@ -118,5 +120,6 @@ require_plugin('nvim-web-devicons')
 require_plugin('vim-devicons')
 require_plugin('galaxyline.nvim')
 require_plugin('barbar.nvim')
+require_plugin('rnvimr')
 end)
 
