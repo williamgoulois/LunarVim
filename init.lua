@@ -17,6 +17,7 @@ require('nv-indentline')
 require('nv-nvimtree')
 require('nv-autopairs')
 require('nv-barbar')
+require('nv-rnvimr')
 
 -- Which Key (Hope to replace with Lua plugin someday)
 vim.cmd('source ~/.config/nvim/vimscript/nv-whichkey/init.vim')
