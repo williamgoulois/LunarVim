@@ -8,14 +8,25 @@ if fn.empty(fn.glob(install_path)) > 0 then
     execute 'packadd packer.nvim'
 end
 
-local my = function(file)
-    require(file)
+--- Check if a file or directory exists in this path
+local function require_plugin(plugin)
+    local plugin_prefix = fn.stdpath('data') .. '/site/pack/packer/opt/'
+
+    local plugin_path = plugin_prefix .. plugin .. '/'
+    --	print('test '..plugin_path)
+    local ok, err, code = os.rename(plugin_path, plugin_path)
+    if not ok then
+        if code == 13 then
+            -- Permission denied, but it exists
+            return true
+        end
+    end
+    --	print(ok, err, code)
+    if ok then vim.cmd('packadd ' .. plugin) end
+    return ok, err, code
 end
 
 vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile' -- Auto compile when there are changes in plugins.lua
-
--- require('packer').init({display = {non_interactive = true}})
--- require('packer').init({display = {auto_clean = false}})
 
 return require('packer').startup(function(use)
     -- Packer can manage itself as an optional plugin
@@ -68,55 +79,32 @@ return require('packer').startup(function(use)
     use {'glepnir/galaxyline.nvim', opt = true}
     use {'romgrk/barbar.nvim', opt = true}
 
---- Check if a file or directory exists in this path
-local function require_plugin(plugin)
-	local plugin_prefix = fn.stdpath('data') .. '/site/pack/packer/opt/'
-
-	local plugin_path = plugin_prefix .. plugin .. '/'
---	print('test '..plugin_path)
-
-	local ok, err, code = os.rename(plugin_path, plugin_path)
-	if not ok then
-		if code == 13 then
-			-- Permission denied, but it exists
-			return true
-		end
-	end
---	print(ok, err, code)
-	if ok then
-
-		vim.cmd('packadd ' .. plugin)
-	end
-	return ok, err, code
-end
-
-
-require_plugin('nvim-lspconfig')
-require_plugin('lspsaga.nvim')
-require_plugin('lspkind-nvim')
-require_plugin('nvim-lspinstall')
-require_plugin('popup.nvim')
-require_plugin('plenary.nvim')
-require_plugin('telescope.nvim')
-require_plugin('nvim-dap')
-require_plugin('nvim-compe')
-require_plugin('emmet-vim')
-require_plugin('vim-vsnip')
-require_plugin('nvim-treesitter')
-require_plugin('nvim-ts-autotag')
-require_plugin('nvim-tree.lua')
-require_plugin('gitsigns.nvim')
-require_plugin('vim-which-key')
-require_plugin('dashboard-nvim')
-require_plugin('nvim-autopairs')
-require_plugin('nvim-comment')
-require_plugin('nvim-bqf')
-require_plugin('nvcode-color-schemes.vim')
-require_plugin('nvim-colorizer.lua')
-require_plugin('nvim-web-devicons')
-require_plugin('vim-devicons')
-require_plugin('galaxyline.nvim')
-require_plugin('barbar.nvim')
-require_plugin('rnvimr')
+    require_plugin('nvim-lspconfig')
+    require_plugin('lspsaga.nvim')
+    require_plugin('lspkind-nvim')
+    require_plugin('nvim-lspinstall')
+    require_plugin('popup.nvim')
+    require_plugin('plenary.nvim')
+    require_plugin('telescope.nvim')
+    require_plugin('nvim-dap')
+    require_plugin('nvim-compe')
+    require_plugin('emmet-vim')
+    require_plugin('vim-vsnip')
+    require_plugin('nvim-treesitter')
+    require_plugin('nvim-ts-autotag')
+    require_plugin('nvim-tree.lua')
+    require_plugin('gitsigns.nvim')
+    require_plugin('vim-which-key')
+    require_plugin('dashboard-nvim')
+    require_plugin('nvim-autopairs')
+    require_plugin('nvim-comment')
+    require_plugin('nvim-bqf')
+    require_plugin('nvcode-color-schemes.vim')
+    require_plugin('nvim-colorizer.lua')
+    require_plugin('nvim-web-devicons')
+    require_plugin('vim-devicons')
+    require_plugin('galaxyline.nvim')
+    require_plugin('barbar.nvim')
+    require_plugin('rnvimr')
 end)
 
