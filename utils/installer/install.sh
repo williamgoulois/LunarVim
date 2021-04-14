@@ -143,17 +143,17 @@ else
 	installpacker
 fi
 
-if [ -a "$HOME/.config/nvcode/init.lua" ]; then
+if [ -a "$HOME/.config/nvim/init.lua" ]; then
 	echo 'nvcode already installed'
 else
 	# clone config down
 	cloneconfig
-	echo 'export PATH=$HOME/.config/nvcode/utils/bin:$PATH' >>~/.zshrc
-	echo 'export PATH=$HOME/.config/nvcode/utils/bin:$PATH' >>~/.bashrc
+	# echo 'export PATH=$HOME/.config/nvim/utils/bin:$PATH' >>~/.zshrc
+	# echo 'export PATH=$HOME/.config/nvcode/utils/bin:$PATH' >>~/.bashrc
 fi
 
 echo "I recommend you also install and activate a font from here: https://github.com/ryanoasis/nerd-fonts"
 
-echo "I also recommend you add 'set preview_images_method ueberzug' to ~/.config/ranger/rc.conf"
+# echo "I also recommend you add 'set preview_images_method ueberzug' to ~/.config/ranger/rc.conf"
 
-echo 'export PATH=/home/$USER/.config/nvcode/utils/bin:$PATH appending to zshrc/bashrc'
+# echo 'export PATH=/home/$USER/.config/nvcode/utils/bin:$PATH appending to zshrc/bashrc'

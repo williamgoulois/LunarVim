@@ -1,94 +1,122 @@
--- vim.cmd [[packadd packer.nvim]]
 local execute = vim.api.nvim_command
 local fn = vim.fn
-local install_path = fn.stdpath('data') .. '/site/pack/paqs/opt/paq-nvim'
+
+local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+
 if fn.empty(fn.glob(install_path)) > 0 then
-     execute('!git clone https://github.com/savq/paq-nvim.git ' .. install_path)
-     execute 'packadd paq-nvim'         -- Load package
- end
--- local my = function(file) require(file) end
--- vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile' -- Auto compile when there are changes in plugins.lua
+    execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
+    execute 'packadd packer.nvim'
+end
+
+local my = function(file)
+    require(file)
+end
+
+vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile' -- Auto compile when there are changes in plugins.lua
+
 -- require('packer').init({display = {non_interactive = true}})
+-- require('packer').init({display = {auto_clean = false}})
 
-vim.cmd 'packadd paq-nvim'         -- Load package
-local paq = require'paq-nvim'.paq  -- Import module and bind `paq` function
+return require('packer').startup(function(use)
+    -- Packer can manage itself as an optional plugin
+    use 'wbthomason/packer.nvim'
 
-	paq {'savq/paq-nvim', opt=true}     -- Let Paq manage itself
-
--- Add your packages
-    -- LSP
-    paq {'neovim/nvim-lspconfig', opt=true}
-    paq {'glepnir/lspsaga.nvim', opt=true}
-    paq {'onsails/lspkind-nvim', opt=true}
-    paq {'kosayoda/nvim-lightbulb', opt=true}
-    paq {'kabouzeid/nvim-lspinstall', opt=true}
+    use {'neovim/nvim-lspconfig', opt = true}
+    use {'glepnir/lspsaga.nvim', opt = true}
+    use {'onsails/lspkind-nvim', opt = true}
+    use {'kosayoda/nvim-lightbulb', opt = true}
+    use {'kabouzeid/nvim-lspinstall', opt = true}
 
     -- Telescope
-    paq {'nvim-lua/popup.nvim', opt=true}
-    paq {'nvim-lua/plenary.nvim', opt=true}
-    paq {'nvim-telescope/telescope.nvim', opt=true}
+    use {'nvim-lua/popup.nvim', opt = true}
+    use {'nvim-lua/plenary.nvim', opt = true}
+    use {'nvim-telescope/telescope.nvim', opt = true}
 
     -- Debugging
-    paq {'mfussenegger/nvim-dap', opt=true}
+    use {'mfussenegger/nvim-dap', opt = true}
 
     -- Autocomplete
-    paq {'hrsh7th/nvim-compe', opt=true}
-    paq {'mattn/emmet-vim', opt=true}
-    paq {'hrsh7th/vim-vsnip', opt=true}
-    paq {"rafamadriz/friendly-snippets", opt=true}
+    use {'hrsh7th/nvim-compe', opt = true}
+    use {'mattn/emmet-vim', opt = true}
+    use {'hrsh7th/vim-vsnip', opt = true}
+    use {"rafamadriz/friendly-snippets", opt = true}
 
     -- Treesitter
-    paq {'nvim-treesitter/nvim-treesitter',opt=true, run = ':TSUpdate'}
-    paq {'windwp/nvim-ts-autotag', opt=true}
+    use {'nvim-treesitter/nvim-treesitter', opt = true, run = ':TSUpdate'}
+    use {'windwp/nvim-ts-autotag', opt = true}
 
     -- Explorer
-    paq {'kyazdani42/nvim-tree.lua', opt=true}
+    use {'kyazdani42/nvim-tree.lua', opt = true}
 
-    --paq {'lukas-reineke/indent-blankline.nvim', opt=true, branch = 'lua'}
-    paq {'lewis6991/gitsigns.nvim', opt=true}
-    paq {'liuchengxu/vim-which-key', opt=true}
-    paq {'ChristianChiarulli/dashboard-nvim', opt=true}
-    paq {'windwp/nvim-autopairs', opt=true}
-    paq {'terrortylor/nvim-comment', opt=true}
-    paq {'kevinhwang91/nvim-bqf', opt=true}
+    -- use {'lukas-reineke/indent-blankline.nvim', opt=true, branch = 'lua'}
+    use {'lewis6991/gitsigns.nvim', opt = true}
+    use {'liuchengxu/vim-which-key', opt = true}
+    use {'ChristianChiarulli/dashboard-nvim', opt = true}
+    use {'windwp/nvim-autopairs', opt = true}
+    use {'terrortylor/nvim-comment', opt = true}
+    use {'kevinhwang91/nvim-bqf', opt = true}
 
     -- Color
-    paq {'christianchiarulli/nvcode-color-schemes.vim', opt=true}
-    paq {'norcalli/nvim-colorizer.lua', opt=true}
+    use {'christianchiarulli/nvcode-color-schemes.vim', opt = true}
+    use {'norcalli/nvim-colorizer.lua', opt = true}
 
     -- Icons
-    paq {'kyazdani42/nvim-web-devicons', opt=true}
-    paq {'ryanoasis/vim-devicons', opt=true}
+    use {'kyazdani42/nvim-web-devicons', opt = true}
+    use {'ryanoasis/vim-devicons', opt = true}
 
     -- Status Line and Bufferline
-    paq {'glepnir/galaxyline.nvim', opt=true}
-    paq {'romgrk/barbar.nvim', opt=true}
+    use {'glepnir/galaxyline.nvim', opt = true}
+    use {'romgrk/barbar.nvim', opt = true}
 
-     vim.cmd 'packadd nvim-lspconfig'         -- Load package
-     vim.cmd 'packadd lspsaga.nvim'         -- Load package
-     vim.cmd 'packadd lspkind-nvim'         -- Load package
-     vim.cmd 'packadd nvim-lightbulb'         -- Load package
-     vim.cmd 'packadd nvim-lspinstall'         -- Load package
-     vim.cmd 'packadd popup.nvim'         -- Load package
-     vim.cmd 'packadd plenary.nvim'         -- Load package
-     vim.cmd 'packadd telescope.nvim'         -- Load package
-     vim.cmd 'packadd nvim-dap'         -- Load package
-     vim.cmd 'packadd nvim-compe'         -- Load package
-     vim.cmd 'packadd emmet-vim'         -- Load package
-     vim.cmd 'packadd vim-vsnip'         -- Load package
-     vim.cmd 'packadd friendly-snippets'         -- Load package
-     vim.cmd 'packadd nvim-treesitter'         -- Load package
-     vim.cmd 'packadd nvim-ts-autotag'         -- Load package
-     vim.cmd 'packadd nvim-tree.lua'         -- Load package
-     vim.cmd 'packadd gitsigns.nvim'         -- Load package
-     vim.cmd 'packadd vim-which-key'         -- Load package
-     vim.cmd 'packadd dashboard-nvim'         -- Load package
-     vim.cmd 'packadd nvim-autopairs'         -- Load package
-     vim.cmd 'packadd nvim-comment'         -- Load package
-     vim.cmd 'packadd nvim-bqf'         -- Load package
-     vim.cmd 'packadd nvcode-color-schemes.vim'         -- Load package
-     vim.cmd 'packadd nvim-colorizer.lua'         -- Load package
-     vim.cmd 'packadd nvim-web-devicons'         -- Load package
-     vim.cmd 'packadd vim-devicons'         -- Load package
-     vim.cmd 'packadd galaxyline.nvim'         -- Load package
-     vim.cmd 'packadd barbar.nvim'         -- Load package
+--- Check if a file or directory exists in this path
+local function require_plugin(plugin)
+	local plugin_prefix = fn.stdpath('data') .. '/site/pack/packer/opt/'
+
+	local plugin_path = plugin_prefix .. plugin .. '/'
+--	print('test '..plugin_path)
+
+	local ok, err, code = os.rename(plugin_path, plugin_path)
+	if not ok then
+		if code == 13 then
+			-- Permission denied, but it exists
+			return true
+		end
+	end
+--	print(ok, err, code)
+	if ok then
+
+		vim.cmd('packadd ' .. plugin)
+	end
+	return ok, err, code
+end
+
+
+require_plugin('nvim-lspconfig')
+require_plugin('lspsaga.nvim')
+require_plugin('lspkind-nvim')
+require_plugin('nvim-lightbulb')
+require_plugin('nvim-lspinstall')
+require_plugin('popup.nvim')
+require_plugin('plenary.nvim')
+require_plugin('telescope.nvim')
+require_plugin('nvim-dap')
+require_plugin('nvim-compe')
+require_plugin('emmet-vim')
+require_plugin('vim-vsnip')
+require_plugin('nvim-treesitter')
+require_plugin('nvim-ts-autotag')
+require_plugin('nvim-tree.lua')
+require_plugin('gitsigns.nvim')
+require_plugin('vim-which-key')
+require_plugin('dashboard-nvim')
+require_plugin('nvim-autopairs')
+require_plugin('nvim-comment')
+require_plugin('nvim-bqf')
+require_plugin('nvcode-color-schemes.vim')
+require_plugin('nvim-colorizer.lua')
+require_plugin('nvim-web-devicons')
+require_plugin('vim-devicons')
+require_plugin('galaxyline.nvim')
+require_plugin('barbar.nvim')
+end)
+
