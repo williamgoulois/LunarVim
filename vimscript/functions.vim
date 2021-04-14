@@ -55,10 +55,6 @@ command! DebugGetSession lua require'dap'.session()
 " nnoremap <silent> <leader>dr :lua require'dap'.repl.open()<CR>
 " nnoremap <silent> <leader>dl :lua require'dap'.run_last()<CR>
 
-" TODO find out why this thing follows me everywhere in java
-let blacklist = ['java']
-autocmd CursorHold,CursorHoldI * if index(blacklist, &ft) < 0 | lua require'nvim-lightbulb'.update_lightbulb()
-
 autocmd! User GoyoEnter lua require('gitsigns').toggle_signs()
 autocmd! User GoyoLeave lua require('gitsigns').toggle_signs()
 

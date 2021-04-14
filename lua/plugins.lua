@@ -25,7 +25,6 @@ return require('packer').startup(function(use)
     use {'neovim/nvim-lspconfig', opt = true}
     use {'glepnir/lspsaga.nvim', opt = true}
     use {'onsails/lspkind-nvim', opt = true}
-    use {'kosayoda/nvim-lightbulb', opt = true}
     use {'kabouzeid/nvim-lspinstall', opt = true}
 
     -- Telescope
@@ -60,7 +59,6 @@ return require('packer').startup(function(use)
 
     -- Color
     use {'christianchiarulli/nvcode-color-schemes.vim', opt = true}
-    use {'norcalli/nvim-colorizer.lua', opt = true}
 
     -- Icons
     use {'kyazdani42/nvim-web-devicons', opt = true}
@@ -96,7 +94,6 @@ end
 require_plugin('nvim-lspconfig')
 require_plugin('lspsaga.nvim')
 require_plugin('lspkind-nvim')
-require_plugin('nvim-lightbulb')
 require_plugin('nvim-lspinstall')
 require_plugin('popup.nvim')
 require_plugin('plenary.nvim')
