@@ -73,7 +73,6 @@ return require('packer').startup(function(use)
 
     -- Icons
     use {'kyazdani42/nvim-web-devicons', opt = true}
-    use {'ryanoasis/vim-devicons', opt = true}
 
     -- Status Line and Bufferline
     use {'glepnir/galaxyline.nvim', opt = true}
@@ -99,9 +98,7 @@ return require('packer').startup(function(use)
     require_plugin('nvim-comment')
     require_plugin('nvim-bqf')
     require_plugin('nvcode-color-schemes.vim')
-    require_plugin('nvim-colorizer.lua')
     require_plugin('nvim-web-devicons')
-    require_plugin('vim-devicons')
     require_plugin('galaxyline.nvim')
     require_plugin('barbar.nvim')
 end)
