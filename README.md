@@ -164,7 +164,7 @@ Point the nvim path to your `nvim` binary
 Point your `init.vim` path to:
 
 ``` vim
-$HOME/.config/nvim/vimscript/nv-vscode/init.vim
+$HOME/.config/nvim/vimscript/lv-vscode/init.vim
 ```
 
 ## TODO
