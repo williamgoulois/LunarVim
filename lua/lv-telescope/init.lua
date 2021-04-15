@@ -2,7 +2,6 @@ local actions = require('telescope.actions')
 -- Global remapping
 ------------------------------
 -- '--color=never',
-require('telescope').load_extension('media_files')
 require('telescope').setup {
     defaults = {
         find_command = {'rg', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case'},
@@ -60,14 +59,6 @@ require('telescope').setup {
                 ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
                 -- ["<C-i>"] = my_cool_custom_action,
             }
-        }
-    },
-    extensions = {
-        media_files = {
-            -- filetypes whitelist
-            -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-            filetypes = {"png", "webp", "jpg", "jpeg"},
-            find_cmd = "rg" -- find command (defaults to `fd`)
         }
     }
 }
