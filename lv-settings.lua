@@ -47,6 +47,6 @@ O.tsserver.linter = nil
 O.tsserver.autoformat = true
 
 -- json
-O.json.autoformat = true
+O.json.autoformat = false
 
 -- create custom autocommand field (This would be easy with lua)
