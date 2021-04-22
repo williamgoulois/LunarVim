@@ -137,4 +137,13 @@ let g:which_key_map.l = {
       \ 'S' : [':Telescope lsp_workspace_symbols'    , 'workspace symbols'],
       \ }
 
+" g is for git
+let g:which_key_map.z = {
+      \ 'name' : '+zen' ,
+      \ 'z' : [':TZAtaraxis' , 'toggle zen'],
+      \ 's' : [':TZBottom'   , 'toggle status line'],
+      \ 't' : [':TZTop'      , 'toggle tab bar'],
+      \ }
+      " \ 'a' : [':TZMinimalist'                          , 'browse'],
+
 call which_key#register('<Space>', "g:which_key_map")

@@ -97,9 +97,10 @@ return require("packer").startup(function(use)
     use {'iamcco/markdown-preview.nvim', run = 'cd app && npm install'}
     use 'voldikss/vim-floaterm'
 	use 'monaqa/dial.nvim'
-    use 'junegunn/goyo.vim'
     use 'andymass/vim-matchup'
 	use 'nacro90/numb.nvim'
+	use 'turbio/bracey.vim'
+	use 'kdav5758/TrueZen.nvim'
 
     require_plugin("nvim-lspconfig")
     require_plugin("lspsaga.nvim")
@@ -123,4 +124,12 @@ return require("packer").startup(function(use)
     require_plugin("nvim-web-devicons")
     require_plugin("galaxyline.nvim")
     require_plugin("barbar.nvim")
+    require_plugin('metakirby5/codi.vim')
+    require_plugin('iamcco/markdown-preview.nvim')
+    require_plugin('voldikss/vim-floaterm')
+	require_plugin('monaqa/dial.nvim')
+    require_plugin('andymass/vim-matchup')
+	require_plugin('nacro90/numb.nvim')
+	require_plugin('turbio/bracey.vim')
+	require_plugin('kdav5758/TrueZen.nvim')
 end)

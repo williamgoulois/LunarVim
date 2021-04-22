@@ -24,6 +24,7 @@ require('lv-hop')
 require('lv-matchup')
 require('lv-numb')
 require('lv-quickscope')
+require('lv-zen')
 
 -- Which Key (Hope to replace with Lua plugin someday)
 vim.cmd('source ~/.config/nvim/vimscript/lv-whichkey/init.vim')
