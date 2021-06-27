@@ -141,7 +141,7 @@ local normalMappings = {
 }
 
 local visualMappings = {
-    ["/"] = {"<cmd>CommentToggle<cr>", "Comment"},
+    ["/"] = {":'<,'>CommentToggle<cr>", "Comment"},
 }
 
 if O.extras then
