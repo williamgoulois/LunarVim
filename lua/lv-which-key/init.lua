@@ -72,8 +72,8 @@ local normalMappings = {
     ["c"] = {"<cmd>BufferClose<cr>", "Close Buffer"},
     ["e"] = {":NvimTreeToggle<cr>", "Explorer"},
     ["f"] = {"<cmd>Telescope find_files<cr>", "Find File"},
-    ["h"] = {"<cmd>set hlsearch!<cr>", "No Highlight"},
-    ["z"] = {"<cmd>TZAtaraxis<cr>", "Zen"},
+    ["h"] = {":let @/=''<cr>", "No Highlight"},
+    ["z"] = {":TZAtaraxis<cr>", "Zen"},
     b = {
       name = "+Buffers",
       j = {"<cmd>BufferPick<cr>", "jump to buffer"},
@@ -140,12 +140,14 @@ local normalMappings = {
     },
 }
 
+-- NOTE: Prefer using : over <cmd> in the command expression as the later avoids going back in normal-mode.
+-- see https://neovim.io/doc/user/map.html#:map-cmd
 local visualMappings = {
-    ["/"] = {":'<,'>CommentToggle<cr>", "Comment"},
+    ["/"] = {":CommentToggle<cr>", "Comment"},
 }
 
 if O.extras then
-    normalMappings["D"] = {
+    normalMappings["d"] = {
         name = "Diagnostics",
         t = {"<cmd>TroubleToggle<cr>", "trouble"},
         w = {"<cmd>TroubleToggle lsp_workspace_diagnostics<cr>", "workspace"},
@@ -154,25 +156,19 @@ if O.extras then
         l = {"<cmd>TroubleToggle loclist<cr>", "loclist"},
         r = {"<cmd>TroubleToggle lsp_references<cr>", "references"}
     }
-    normalMappings["l"] = {
-        name = "LSP",
+
+    local newLspKeys = {
         a = {"<cmd>Lspsaga code_action<cr>", "Code Action"},
         A = {"<cmd>Lspsaga range_code_action<cr>", "Selected Action"},
-        d = {"<cmd>Telescope lsp_document_diagnostics<cr>", "Document Diagnostics"},
-        D = {"<cmd>Telescope lsp_workspace_diagnostics<cr>", "Workspace Diagnostics"},
-        f = {"<cmd>LspFormatting<cr>", "Format"},
         h = {"<cmd>Lspsaga hover_doc<cr>", "Hover Doc"},
-        i = {"<cmd>LspInfo<cr>", "Info"},
         l = {"<cmd>Lspsaga lsp_finder<cr>", "LSP Finder"},
         L = {"<cmd>Lspsaga show_line_diagnostics<cr>", "Line Diagnostics"},
         p = {"<cmd>Lspsaga preview_definition<cr>", "Preview Definition"},
-        q = {"<cmd>Telescope quickfix<cr>", "Quickfix"},
         r = {"<cmd>Lspsaga rename<cr>", "Rename"},
-        t = {"<cmd>LspTypeDefinition<cr>", "Type Definition"},
-        x = {"<cmd>cclose<cr>", "Close Quickfix"},
-        s = {"<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols"},
-        S = {"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols"}
     }
+    -- merge LSP default keys with extras keys
+    for k,v in pairs(newLspKeys) do normalMappings["l"][k] = v end
+
     normalMappings["L"] = {
         name = "+Latex",
         c = {"<cmd>VimtexCompile<cr>", "Toggle Compilation Mode"},
@@ -194,10 +190,13 @@ if O.extras then
         t = {"<cmd>TZTop<cr>", "toggle tab bar"},
     }
     normalMappings[";"] = {"<cmd>Dashboard<cr>", "Dashboard"}
+
+    -- NOTE: Prefer using : over <cmd> in the command expression as the later avoids going back in normal-mode.
+    -- see https://neovim.io/doc/user/map.html#:map-cmd
     visualMappings["r"] = {
         name = "Replace",
-        f = {"<cmd>lua require('spectre').open_visual({path = vim.fn.expand('%')})<cr>", "File"},
-        p = {"<cmd>lua require('spectre').open_visual()<cr>", "Project"}
+        f = {":lua require('spectre').open_visual({path = vim.fn.expand('%')})<cr>", "File"},
+        p = {":lua require('spectre').open_visual()<cr>", "Project"}
     }
 end
 
