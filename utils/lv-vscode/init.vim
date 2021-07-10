@@ -1,6 +1,29 @@
 " packadd quickscope
 
+" execute 'luafile ' .. stdpath('config') .. '/settings.lua'
 " execute 'luafile ' . stdpath('config') . '/lua/settings.lua'
+
+" Add Plugin for multi cursor
+call plug#begin('~/.vim/plugged')
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+call plug#end()
+
+let g:VM_leader = {'default': '\', 'visual': '\', 'buffer': '\'}
+let g:VM_theme = 'iceblue'
+let g:VM_mouse_mappings = 1
+let g:VM_highlight_matches = 'underline'
+
+let g:VM_maps = {}
+
+" Remap to Control-D to match VSCode
+let g:VM_maps['Find Under']         = '<C-d>'           " replace C-n
+let g:VM_maps['Find Subword Under'] = '<C-d>'           " replace visual C-n
+
+" Add support for multi-cursors with mouse
+
+" Remap Undo and redo
+let g:VM_maps["Undo"]      = 'u'
+let g:VM_maps["Redo"]      = '<C-r>'
 
 function! s:manageEditorSize(...)
     let count = a:1
@@ -15,6 +38,7 @@ function! s:vscodeCommentary(...) abort
         let &operatorfunc = matchstr(expand('<sfile>'), '[^. ]*$')
         return 'g@'
     elseif a:0 > 1
+         
         let [line1, line2] = [a:1, a:2]
     else
         let [line1, line2] = [line("'["), line("']")]
@@ -82,3 +106,6 @@ nmap gcc <Plug>VSCodeCommentaryLine
 " Simulate same TAB behavior in VSCode
 nmap <Tab> :Tabnext<CR>
 nmap <S-Tab> :Tabprev<CR>
+
+" Fix quickfix menu
+nnoremap <C-.>= <Cmd>call VSCodeNotify('keyboard-quickfix.openQuickFix')<CR>
