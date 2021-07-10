@@ -214,7 +214,7 @@ M.config = function()
         name = "Search",
         b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
         c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-        f = { "<cmd>Telescope find_files<cr>", "Find File" },
+        f = { "<cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files<cr>", "Find File" },
         h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
         M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
         r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },

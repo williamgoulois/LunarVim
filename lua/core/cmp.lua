@@ -111,6 +111,10 @@ M.config = function()
         behavior = cmp.ConfirmBehavior.Replace,
         select = true,
       },
+      ["<Right>"] = cmp.mapping.confirm {
+        behavior = cmp.ConfirmBehavior.Replace,
+        select = true,
+      },
     },
   }
 end
